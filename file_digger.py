@@ -30,7 +30,7 @@ def main():
             f.write(f"Python files found in: {directory}\n\n")
             for dirpath, dirnames, filenames in os.walk(directory):
                 #Ignore the unwanted folders.
-                dirnames[:] = [name for name in dirnames if name not in folders_to_ignore]
+                dirnames[:] = [name for name in dirnames if name not in folders_to_ignore and not name.startswith('.')]
                 for filename in filenames:
                     if filename.endswith(".py"):
                         f.write(f'{filename}\n')
